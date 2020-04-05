@@ -459,15 +459,15 @@ public class Autocomplete {
             }
 
             //Here we need to find the child of curr that has the same myWeight as curr.mySubtreeMaxWeight
-            double prefixNodeWeight = curr.mySubtreeMaxWeight;
-           //while (curr.getWeight() != prefixNodeWeight) {
+
+           while (curr.getWeight() != curr.mySubtreeMaxWeight) {
                 for (Node c : curr.children.values()) {
-                    if (c.mySubtreeMaxWeight == prefixNodeWeight) {
+                    if (c.mySubtreeMaxWeight == curr.mySubtreeMaxWeight) {
                         curr = c;
                         break;
                     }
                 }
-            //}
+            }
             return curr.getWord();
         }
 
